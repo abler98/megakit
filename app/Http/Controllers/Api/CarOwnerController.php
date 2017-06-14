@@ -9,6 +9,14 @@ use App\Models\CarOwner;
 class CarOwnerController extends Controller
 {
     /**
+     * CarOwnerController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'admin'])->except('index');
+    }
+
+    /**
      * Список всех владельцев
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
