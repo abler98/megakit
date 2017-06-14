@@ -12195,13 +12195,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             car: {
                 brand: "",
-                model: ""
+                model: "",
+                price: null
             },
             owner: {
                 //
@@ -12273,7 +12284,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onChangeOwner: function onChangeOwner() {
             return function (event, selected, prevent) {
                 if (selected === "add") {
-                    window.open("/admin/car-owners/create");
+                    window.open("/admin/car/owners/create");
                     prevent();
                 }
             };
@@ -12300,6 +12311,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -12545,7 +12558,7 @@ Validator.install = function (Vue) {
         $.each(errors, function (key, value) {
             var $el = $('[data-validate="' + key + '"]');
             var $error = $('<span/>').addClass('help-block').html('<strong>' + value[0] + '</strong>');
-            $el.addClass('has-error').find('div').append($error);
+            $el.addClass('has-error').find('div').first().append($error);
             console.log(key, value);
         });
     }
@@ -38404,6 +38417,42 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group",
+    attrs: {
+      "data-validate": "car.price"
+    }
+  }, [_c('label', {
+    staticClass: "col-md-4 control-label",
+    attrs: {
+      "for": "car-price"
+    }
+  }, [_vm._v("Цена")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-6"
+  }, [_c('div', {
+    staticClass: "input-group"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.car.price),
+      expression: "car.price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "id": "car-price",
+      "type": "text",
+      "name": "car[price]"
+    },
+    domProps: {
+      "value": (_vm.car.price)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.car.price = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-4"
@@ -38419,7 +38468,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": "#"
     }
   }, [_vm._v("Назад")])])])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "input-group-addon"
+  }, [_c('i', {
+    staticClass: "fa fa-usd"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -38456,7 +38511,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return (_vm.cars.length > 0) ? _c('table', {
     staticClass: "table table-bordered"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.cars), function(car) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(car.id))]), _vm._v(" "), _c('td', [(car.owner) ? _c('span', [_vm._v("\n                " + _vm._s(car.owner['full_name']) + "\n            ")]) : _c('span', [_vm._v("\n                Нет владельца\n            ")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(car.brand))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(car.model))]), _vm._v(" "), _c('td', [_c('a', {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(car.id))]), _vm._v(" "), _c('td', [(car.owner) ? _c('span', [_vm._v("\n                " + _vm._s(car.owner['full_name']) + "\n            ")]) : _c('span', [_vm._v("\n                Нет владельца\n            ")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(car.brand))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(car.model))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(car.price) + " "), _c('i', {
+      staticClass: "fa fa-usd"
+    })]), _vm._v(" "), _c('td', [_c('a', {
       staticClass: "btn btn-default",
       attrs: {
         "href": "#"
@@ -38489,7 +38546,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "1%"
     }
-  }, [_vm._v("#")]), _vm._v(" "), _c('td', [_vm._v("Владелец")]), _vm._v(" "), _c('td', [_vm._v("Марка")]), _vm._v(" "), _c('td', [_vm._v("Модель")]), _vm._v(" "), _c('td', [_vm._v("Управление")])])])
+  }, [_vm._v("#")]), _vm._v(" "), _c('td', [_vm._v("Владелец")]), _vm._v(" "), _c('td', [_vm._v("Марка")]), _vm._v(" "), _c('td', [_vm._v("Модель")]), _vm._v(" "), _c('td', [_vm._v("Цена")]), _vm._v(" "), _c('td', [_vm._v("Управление")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

@@ -24,6 +24,16 @@
                        class="form-control" name="car[model]">
             </div>
         </div>
+        <div class="form-group" data-validate="car.price">
+            <label for="car-price" class="col-md-4 control-label">Цена</label>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input v-model="car.price" id="car-price" type="text"
+                           class="form-control" name="car[price]">
+                    <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+                </div>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">
                 <button type="submit" class="btn btn-primary"
@@ -41,6 +51,7 @@
                 car: {
                     brand: "",
                     model: "",
+                    price: null,
                 },
                 owner: {
                     //
@@ -104,7 +115,7 @@
             onChangeOwner() {
                 return (event, selected, prevent) => {
                     if (selected === "add") {
-                        window.open("/admin/car-owners/create");
+                        window.open("/admin/car/owners/create");
                         prevent();
                     }
                 };

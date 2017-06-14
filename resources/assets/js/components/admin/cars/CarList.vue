@@ -6,6 +6,7 @@
             <td>Владелец</td>
             <td>Марка</td>
             <td>Модель</td>
+            <td>Цена</td>
             <td>Управление</td>
         </tr>
         </thead>
@@ -22,6 +23,7 @@
             </td>
             <td>{{ car.brand }}</td>
             <td>{{ car.model }}</td>
+            <td>{{ car.price }} <i class="fa fa-usd"></i></td>
             <td>
                 <a @click.prevent="edit(car.id)" href="#" class="btn btn-default">
                     <span class="fa fa-edit"></span> Изменить

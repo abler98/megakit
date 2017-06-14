@@ -34,7 +34,7 @@ Validator.install = (Vue) => {
         $.each(errors, (key, value) => {
             let $el = $(`[data-validate="${key}"]`);
             let $error = $('<span/>').addClass('help-block').html(`<strong>${value[0]}</strong>`);
-            $el.addClass('has-error').find('div').append($error);
+            $el.addClass('has-error').find('div').first().append($error);
             console.log(key, value);
         });
     }

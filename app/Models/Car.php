@@ -20,7 +20,9 @@ class Car extends \Eloquent
 {
     public $timestamps = false;
 
-    protected $fillable = ['brand', 'model'];
+    protected $fillable = ['brand', 'model', 'price'];
+
+    protected $casts = ['price' => 'float'];
 
     /**
      * Владелец автомобиля
