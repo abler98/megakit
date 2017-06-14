@@ -1,6 +1,11 @@
 
 window._ = require('lodash');
 
+window.PNotify = require('pnotify');
+require('../../../node_modules/pnotify/src/pnotify.buttons');
+
+PNotify.prototype.options.styling = "fontawesome";
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -12,6 +17,9 @@ try {
 
     require('bootstrap-sass');
 } catch (e) {}
+
+window.select2 = require('select2');
+$.fn.select2.defaults.set('theme', 'bootstrap');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

@@ -15,8 +15,18 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+import VueAxios from 'vue-axios';
+import VueValidator from './plugins/validator';
+import VuePNotify from './plugins/pnotify';
 
-const app = new Vue({
-    el: '#app'
-});
+window.Vue.use(VueAxios, window.axios);
+window.Vue.use(VueValidator);
+window.Vue.use(VuePNotify);
+
+Vue.component('admin-car-list', require('./components/admin/cars/CarList.vue'));
+Vue.component('admin-car-form', require('./components/admin/cars/CarForm.vue'));
+
+Vue.component('admin-car-owner-form', require('./components/admin/car-owners/CarOwnerForm.vue'));
+Vue.component('admin-car-owner-list', require('./components/admin/car-owners/CarOwnerList.vue'));
+
+const app = new Vue({ el: '#app' });
